@@ -162,7 +162,7 @@
                 <a href="#how-it-works" class="nav-link">How it works</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="https://merchants.chickentenderapp.com" target="_blank" rel="noopener" class="nav-link">For Merchants</a>
-                <a href="#download-now" class="btn btn-accent">Get the app</a>
+                <a href="#download-now" id="get-app" class="btn btn-accent">Get the app</a>
             </div>
         </div>
     </nav>
@@ -352,6 +352,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- Send the nav "Get the app" button straight to the right store on mobile;
+         on desktop/unknown it falls back to scrolling to the download section. -->
+    <script>
+    (function () {
+        var btn = document.getElementById('get-app');
+        if (!btn) return;
+
+        var APP_STORE = 'https://apps.apple.com/us/app/id1514175364';
+        var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.kvl.chickentender';
+
+        var ua = navigator.userAgent || '';
+        var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+            // iPadOS 13+ reports as Mac; detect via touch support
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var isAndroid = /Android/i.test(ua);
+
+        var store = isIOS ? APP_STORE : (isAndroid ? PLAY_STORE : null);
+        if (store) {
+            btn.setAttribute('href', store);
+            btn.setAttribute('target', '_blank');
+            btn.setAttribute('rel', 'noopener');
+        }
+    })();
+    </script>
 
 </body>
 
