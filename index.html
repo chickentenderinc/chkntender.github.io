@@ -9,7 +9,8 @@
     <meta name="description" content="Chicken Tender is the free app that ends the 'where do you want to eat?' debate forever. Swipe through nearby restaurants with friends, match on favorites, and go eat — available on iPhone, iPad, and Android.">
     <meta name="keywords" content="Chicken Tender, restaurant picker app, where to eat app, food decision app, group dining app, restaurant swipe app, date night app, indecision app, free restaurant app">
     <meta name="author" content="Chicken Tender, Inc">
-    <meta name="theme-color" content="#222222">
+    <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f6f6fa" media="(prefers-color-scheme: light)">
     <meta name="apple-itunes-app" content="app-id=1514175364">
     <link rel="icon" href="./img/tender/favicon.ico" sizes="48x48" type="image/x-icon" />
     <link rel="icon" href="./logo.png" sizes="1024x1024" type="./image/png" />
@@ -21,9 +22,12 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="Chicken Tender — End the 'Where Do We Eat?' Debate" />
     <meta property="og:url" content="https://www.chickentenderapp.com" />
-    <meta property="og:image" content="https://www.chickentenderapp.com/img/tender/banner.jpg" />
+    <meta property="og:image" content="https://www.chickentenderapp.com/img/tender/og-image.png" />
+    <meta property="og:image:secure_url" content="https://www.chickentenderapp.com/img/tender/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Chicken Tender — End the &quot;where do we eat?&quot; debate. Swipe nearby restaurants with friends, match, and go eat. Free on iPhone, iPad &amp; Android." />
     <meta property="og:description" content="The free app that helps groups pick a restaurant. Everyone swipes, everyone matches, everyone eats. Free on iOS and Android." />
 
     <!-- Twitter Card -->
@@ -31,7 +35,8 @@
     <meta name="twitter:site" content="@ChickenTenderAp" />
     <meta name="twitter:title" content="Chicken Tender — End the 'Where Do We Eat?' Debate" />
     <meta name="twitter:description" content="The free app that helps groups pick a restaurant. Everyone swipes, everyone matches, everyone eats." />
-    <meta name="twitter:image" content="https://www.chickentenderapp.com/img/tender/banner.jpg" />
+    <meta name="twitter:image" content="https://www.chickentenderapp.com/img/tender/og-image.png" />
+    <meta name="twitter:image:alt" content="Chicken Tender — End the &quot;where do we eat?&quot; debate. Free on iPhone, iPad &amp; Android." />
 
     <title>Chicken Tender™ — Free Restaurant Picker App for Groups | iOS &amp; Android</title>
 
@@ -133,226 +138,221 @@
     }
     </script>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
+    <!-- Fonts (matched to merchants.chickentenderapp.com) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic&display=swap" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&display=swap" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <!-- Theme CSS -->
-    <link href="css/tender.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
 
     <link rel="canonical" href="https://www.chickentenderapp.com">
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top">
 
-    <!-- Hero Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <img src="./logo.png" alt="Chicken Tender™ App Icon" class="hero-app-icon" />
-                <h1 class="intro-heading">Chicken Tender<sup style="font-size:0.3em; vertical-align:super;">&trade;</sup></h1>
-                <div class="intro-lead-in">End the "Where do you want to eat?" debate — forever.</div>
-                <p class="hero-description">Swipe through nearby restaurants with your friends, match on favorites, and go eat. Or use it solo to discover great spots wherever you are.</p>
-                <div class="hero-badges">
-                    <a href="https://apps.apple.com/us/app/id1514175364" target="_blank" rel="noopener"><img src="img/tender/appstore.svg" alt="Download Chicken Tender on the App Store" height="52"></a>
-                    <a href="https://play.google.com/store/apps/details?id=com.kvl.chickentender" target="_blank" rel="noopener"><img alt="Get Chicken Tender on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="74px" /></a>
-                </div>
-                <p class="hero-free-label">Free &bull; No ads &bull; iPhone, iPad &amp; Android</p>
+    <!-- Nav -->
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a href="#page-top" class="nav-brand">
+                <img src="./img/flame.png" alt="Chicken Tender™ flame logo" />
+                <span class="wordmark">Chicken<span class="accent">Tender</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="#how-it-works" class="nav-link">How it works</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="https://merchants.chickentenderapp.com" target="_blank" rel="noopener" class="nav-link">For Merchants</a>
+                <a href="#download-now" class="btn btn-accent">Get the app</a>
             </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <img src="./logo.png" alt="Chicken Tender™ app icon" class="hero-icon" />
+            <h1>End the <span class="accent">&ldquo;where do we eat?&rdquo;</span> debate<sup>&trade;</sup></h1>
+            <p class="hero-lead">Swipe through nearby restaurants with your friends, match on favorites, and go eat.</p>
+            <p class="hero-desc">Or use it solo to discover great spots wherever you are. No setup, no sign-up — just open the app and start swiping.</p>
+            <div class="store-badges">
+                <a href="https://apps.apple.com/us/app/id1514175364" target="_blank" rel="noopener"><img src="img/tender/appstore.svg" alt="Download Chicken Tender on the App Store"></a>
+                <a href="https://play.google.com/store/apps/details?id=com.kvl.chickentender" target="_blank" rel="noopener"><img alt="Get Chicken Tender on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" style="height:74px"></a>
+            </div>
+            <p class="hero-free">FREE &bull; NO ADS &bull; IPHONE, IPAD &amp; ANDROID</p>
         </div>
     </header>
 
     <!-- Value Proposition -->
-    <section id="value-prop" class="bg-light-gray">
+    <section id="value-prop">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2 class="section-heading">Stop Arguing. Start Eating.</h2>
-                    <p class="lead text-muted">Every group has been there &mdash; 20 minutes of &ldquo;I don&rsquo;t care, you pick&rdquo; going nowhere. Chicken Tender turns that frustration into a fun, two-minute game that ends with a decision everyone&rsquo;s happy about.</p>
-                </div>
+            <div class="section-head">
+                <span class="kicker">// stop arguing, start eating</span>
+                <h2>Twenty minutes of &ldquo;I don&rsquo;t care, you pick&rdquo; — solved.</h2>
+                <p>Every group has been there. Chicken Tender turns that frustration into a fun, two-minute game that ends with a decision everyone&rsquo;s happy about.</p>
             </div>
-            <div class="row text-center" style="margin-top: 30px;">
-                <div class="col-md-4">
-                    <div class="stat-block">
-                        <div class="stat-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-                        <h4 class="service-heading">Nearby Restaurants</h4>
-                        <p class="text-muted">Automatically finds restaurants near you &mdash; no manual searching required.</p>
-                    </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="ico">📍</div>
+                    <h4>Nearby restaurants</h4>
+                    <p>Automatically finds restaurants near you — no manual searching required.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="stat-block">
-                        <div class="stat-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
-                        <h4 class="service-heading">Groups or Solo</h4>
-                        <p class="text-muted">Playing with friends? Bluetooth auto-connects everyone nearby instantly. Traveling alone? Use it solo to discover great restaurants wherever you are.</p>
-                    </div>
+                <div class="card green">
+                    <div class="ico">👥</div>
+                    <h4>Groups or solo</h4>
+                    <p>Playing with friends? Bluetooth auto-connects everyone nearby instantly. Traveling alone? Use it solo to discover great restaurants wherever you are.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="stat-block">
-                        <div class="stat-icon"><i class="fa fa-heart" aria-hidden="true"></i></div>
-                        <h4 class="service-heading">Completely Free</h4>
-                        <p class="text-muted">Free to download and use — no ads, no in-app purchases, no subscription. Ever.</p>
-                    </div>
+                <div class="card red">
+                    <div class="ico">❤️</div>
+                    <h4>Completely free</h4>
+                    <p>Free to download and use — no ads, no in-app purchases, no subscription. Ever.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section id="how-it-works">
+    <section id="how-it-works" class="bg-panel">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-12">
-                    <h2 class="section-heading">How It Works</h2>
-                    <h3 class="section-subheading text-muted">From indecision to dinner in three easy steps.</h3>
-                </div>
+            <div class="section-head">
+                <span class="kicker">// how it works</span>
+                <h2>From indecision to dinner in three steps</h2>
+                <p>It only takes a couple of minutes — and it&rsquo;s genuinely fun.</p>
             </div>
-            <div class="row text-center" style="margin-top: 30px;">
-                <div class="col-md-4">
-                    <div class="step-block">
-                        <div class="step-number" aria-hidden="true">1</div>
-                        <img src="img/tender/main.png" class="screenshot-img" alt="Chicken Tender app showing a list of nearby restaurants to swipe through." />
-                        <h4 class="service-heading">Find Nearby Spots</h4>
-                        <p class="text-muted">Open Chicken Tender and the app automatically loads restaurants near your location. It uses Bluetooth to silently discover everyone nearby who has the app open &mdash; no sharing, no setup.</p>
-                    </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <img src="img/tender/main.png" class="phone" alt="Chicken Tender app showing a list of nearby restaurants to swipe through." />
+                    <h4>Find nearby spots</h4>
+                    <p>Open Chicken Tender and it automatically loads restaurants near you. Bluetooth silently discovers everyone nearby with the app open — no sharing, no setup.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="step-block">
-                        <div class="step-number" aria-hidden="true">2</div>
-                        <img src="img/tender/slide.png" class="screenshot-img" alt="Swiping right on a restaurant card in the Chicken Tender app." />
-                        <h4 class="service-heading">Swipe to Vote</h4>
-                        <p class="text-muted">Each restaurant appears as a card. Swipe right if you&rsquo;re interested, left to pass. Everyone plays on their own device at the same time &mdash; it only takes a few minutes, and it&rsquo;s genuinely fun.</p>
-                    </div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <img src="img/tender/slide.png" class="phone" alt="Swiping right on a restaurant card in the Chicken Tender app." />
+                    <h4>Swipe to vote</h4>
+                    <p>Each restaurant appears as a card. Swipe right if you&rsquo;re interested, left to pass. Everyone plays on their own device at the same time.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="step-block">
-                        <div class="step-number" aria-hidden="true">3</div>
-                        <img src="img/tender/results.png" class="screenshot-img" alt="Group results in Chicken Tender app showing restaurants everyone liked." />
-                        <h4 class="service-heading">See Your Matches</h4>
-                        <p class="text-muted">When everyone&rsquo;s done swiping, Chicken Tender reveals the restaurants you all liked. Pick one and go &mdash; the debate is officially over.</p>
-                    </div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <img src="img/tender/results.png" class="phone" alt="Group results in Chicken Tender app showing restaurants everyone liked." />
+                    <h4>See your matches</h4>
+                    <p>When everyone&rsquo;s done swiping, Chicken Tender reveals the restaurants you all liked. Pick one and go — the debate is over.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Video Preview -->
-    <section id="preview" class="bg-light-gray">
+    <section id="preview">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-12">
-                    <h2 class="section-heading">See It in Action</h2>
-                    <h3 class="section-subheading text-muted">Watch how easy it is to go from indecision to dinner.</h3>
-                </div>
+            <div class="section-head">
+                <span class="kicker">// see it in action</span>
+                <h2>Watch how easy it is</h2>
+                <p>From indecision to dinner, in real time.</p>
             </div>
-            <div class="row" style="margin-top: 30px;">
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <div class="video-wrapper">
-                        <video controls playsinline poster="img/tender/main.png">
-                            <source src="img/tender/preview.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
+            <div class="video-wrap">
+                <video controls playsinline poster="img/tender/main.png">
+                    <source src="img/tender/preview.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq">
+    <!-- Merchants CTA -->
+    <section id="merchants">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-12">
-                    <h2 class="section-heading">Frequently Asked Questions</h2>
+            <div class="merchant-cta">
+                <div class="mc-text">
+                    <span class="kicker">// for restaurants</span>
+                    <h3>Own a restaurant? See which groups almost chose you.</h3>
+                    <p>Chicken Tender for Merchants turns the group-dining decision into competitive intelligence your POS, Yelp, and delivery apps never capture — and helps you win the next one.</p>
                 </div>
-            </div>
-            <div class="row" style="margin-top: 20px;">
-                <div class="col-md-8 col-md-offset-2">
-                    <dl class="faq-list">
-                        <dt>What is Chicken Tender?</dt>
-                        <dd>Chicken Tender is a free mobile app that makes it easy for groups to decide where to eat. Everyone swipes on nearby restaurants, and the app shows you the places the whole group liked &mdash; no more endless back-and-forth.</dd>
-
-                        <dt>Is Chicken Tender free?</dt>
-                        <dd>Completely free &mdash; no ads, no in-app purchases, no subscription. Just download it and go.</dd>
-
-                        <dt>How does the group matching work?</dt>
-                        <dd>Everyone just opens the app. Chicken Tender uses Bluetooth Low Energy to automatically discover all nearby players who have the app open &mdash; no invites, no links to share, zero setup. Everyone swipes on the same set of nearby restaurants, and when the group is done the app reveals the spots everyone liked.</dd>
-
-                        <dt>What devices are supported?</dt>
-                        <dd>Chicken Tender works on iOS and Android smartphones and tablets.</dd>
-
-                        <dt>Does it work for just two people, or even solo?</dt>
-                        <dd>Absolutely. Chicken Tender works great for couples on date night, families picking dinner, and large groups of friends. It also works perfectly on your own &mdash; if you&rsquo;re traveling or just exploring a new neighborhood, use it solo to swipe through nearby restaurants and find somewhere great to eat.</dd>
-                    </dl>
-                </div>
+                <a href="https://merchants.chickentenderapp.com" target="_blank" rel="noopener" class="btn btn-green">Visit Chicken Tender for Merchants →</a>
             </div>
         </div>
     </section>
 
-    <!-- Download CTA Section -->
-    <section id="download-now" class="download-section">
+    <!-- FAQ -->
+    <section id="faq" class="bg-panel">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading download-heading">Ready to End the Debate?</h2>
-                    <h3 class="section-subheading download-subheading">Download Chicken Tender free on iOS and Android.</h3>
-                </div>
+            <div class="section-head">
+                <span class="kicker">// questions</span>
+                <h2>Frequently asked questions</h2>
             </div>
-            <div class="row">
-                <div class="col-lg-12 text-center download-badges">
-                    <a href="https://apps.apple.com/us/app/id1514175364" target="_blank" rel="noopener"><img src="img/tender/appstore.svg" alt="Download Chicken Tender on the App Store" height="60"></a>
-                    <a href="https://play.google.com/store/apps/details?id=com.kvl.chickentender&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" target="_blank" rel="noopener"><img alt="Get Chicken Tender on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="86px" /></a>
-                </div>
+            <div class="faq">
+                <details open>
+                    <summary>What is Chicken Tender?</summary>
+                    <p>Chicken Tender is a free mobile app that makes it easy for groups to decide where to eat. Everyone swipes on nearby restaurants, and the app shows you the places the whole group liked — no more endless back-and-forth.</p>
+                </details>
+                <details>
+                    <summary>Is Chicken Tender free?</summary>
+                    <p>Completely free — no ads, no in-app purchases, no subscription. Just download it and go.</p>
+                </details>
+                <details>
+                    <summary>How does the group matching work?</summary>
+                    <p>Everyone just opens the app. Chicken Tender uses Bluetooth Low Energy to automatically discover all nearby players who have the app open — no invites, no links to share, zero setup. Everyone swipes on the same set of nearby restaurants, and when the group is done the app reveals the spots everyone liked.</p>
+                </details>
+                <details>
+                    <summary>What devices are supported?</summary>
+                    <p>Chicken Tender works on iOS and Android smartphones and tablets.</p>
+                </details>
+                <details>
+                    <summary>Does it work for just two people, or even solo?</summary>
+                    <p>Absolutely. Chicken Tender works great for couples on date night, families picking dinner, and large groups of friends. It also works perfectly on your own — if you&rsquo;re traveling or just exploring a new neighborhood, use it solo to swipe through nearby restaurants and find somewhere great to eat.</p>
+                </details>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Download CTA -->
+    <section id="download-now">
+        <div class="container download-cta">
+            <div class="section-head" style="margin-bottom:0;">
+                <span class="kicker">// ready when you are</span>
+                <h2>Ready to end the debate?</h2>
+                <p>Download Chicken Tender free on iOS and Android.</p>
+            </div>
+            <div class="store-badges">
+                <a href="https://apps.apple.com/us/app/id1514175364" target="_blank" rel="noopener"><img src="img/tender/appstore.svg" alt="Download Chicken Tender on the App Store" style="height:60px"></a>
+                <a href="https://play.google.com/store/apps/details?id=com.kvl.chickentender&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" target="_blank" rel="noopener"><img alt="Get Chicken Tender on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" style="height:86px"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
     <section id="contact">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading">Have suggestions, feedback, or questions? We&rsquo;d love to hear from you.</h3>
-                    <p class="contact-email"><a href="mailto:sean@chickentenderapp.com">sean@chickentenderapp.com</a></p>
-                </div>
+        <div class="container contact">
+            <div class="section-head">
+                <span class="kicker">// get in touch</span>
+                <h2>Contact us</h2>
+                <p>Have suggestions, feedback, or questions? We&rsquo;d love to hear from you.</p>
             </div>
+            <a href="mailto:info@chickentenderapp.com" class="email">info@chickentenderapp.com</a>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <img src="./img/flame.png" alt="Chicken Tender, Inc" class="footer-logo" />
+        <div class="container footer-inner">
+            <div>
+                <div class="footer-brand">
+                    <img src="./img/flame.png" alt="Chicken Tender, Inc" />
+                    <span>Chicken Tender<sup>&trade;</sup></span>
                 </div>
-                <div class="col-md-4 text-center">
-                    <span class="copyright">Copyright &copy; 2026, Chicken Tender, Inc</span>
-                    <span class="copyright">The Chicken Tender&trade; name and flame logo are trademarks of Chicken Tender, Inc.</span>
-                    <span class="copyright">iOS, iPhone, and iPad are registered trademarks of Apple Inc.</span>
-                    <span class="copyright">Google Play and the Google Play logo are trademarks of Google LLC.</span>
-                </div>
-                <div class="col-md-4 text-center footer-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                </div>
+            </div>
+            <div class="footer-legal">
+                Copyright &copy; 2026, Chicken Tender, Inc.<br>
+                The Chicken Tender&trade; name and flame logo are trademarks of Chicken Tender, Inc.<br>
+                iOS, iPhone, and iPad are registered trademarks of Apple Inc.<br>
+                Google Play and the Google Play logo are trademarks of Google LLC.
+            </div>
+            <div class="footer-links">
+                <a href="https://merchants.chickentenderapp.com" target="_blank" rel="noopener">For Merchants</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:info@chickentenderapp.com">Contact</a>
             </div>
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <!-- Theme JavaScript -->
-    <script src="js/chicken.js"></script>
 </body>
 
 </html>
