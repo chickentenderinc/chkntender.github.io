@@ -196,17 +196,22 @@ a:hover { color: var(--accent); }
   text-align: center;
 }
 .hero .hero-icon {
-  width: 96px;
-  height: 96px;
-  border-radius: 22px;
-  box-shadow: 0 20px 60px rgba(245, 133, 62, 0.25);
-  margin-bottom: 26px;
+  display: block;
+  width: auto;
+  height: 112px;
+  margin: 0 auto 26px;
+  /* transparent PNG — glow the flame itself, not a square behind it */
+  filter: drop-shadow(0 16px 40px rgba(245, 133, 62, 0.35));
 }
 .hero h1 {
-  font-size: clamp(40px, 6.5vw, 68px);
+  font-size: min(6.6vw, 68px);
   margin-bottom: 18px;
 }
-.hero h1 .accent { color: var(--accent); }
+.hero h1 .accent {
+  color: var(--accent);
+  /* the quoted phrase reads as one unit — never split it across lines */
+  white-space: nowrap;
+}
 .hero h1 sup { font-size: 0.32em; color: var(--text-muted); vertical-align: super; }
 .hero-lead {
   font-family: var(--font-display);
@@ -243,7 +248,9 @@ a:hover { color: var(--accent); }
 section { padding: 80px 0; position: relative; z-index: 1; }
 .section-head { text-align: center; max-width: 720px; margin: 0 auto 54px; }
 .section-head h2 {
-  font-size: clamp(30px, 4.4vw, 44px);
+  /* The 30px floor is replaced by a vw term on narrow screens so quoted
+     phrases marked .nb still fit on one line (see .nb below). */
+  font-size: clamp(min(6.4vw, 30px), 4.4vw, 44px);
   margin: 16px 0 14px;
 }
 .section-head p { color: var(--text-muted); font-size: 17px; }
@@ -441,3 +448,477 @@ footer {
   .footer-inner { flex-direction: column; }
   .footer-links { text-align: left; }
 }
+
+/* =====================================================================
+   v2.0 additions — version pill, iPhone bezel + video showcase,
+   what's-new grid, legal/privacy pages
+   ===================================================================== */
+
+/* ---------- Version pill ---------- */
+.version-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(245, 133, 62, 0.1);
+  border: 1px solid rgba(245, 133, 62, 0.32);
+  border-radius: 999px;
+  padding: 7px 15px;
+  margin-bottom: 26px;
+}
+.version-pill .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245, 133, 62, 0.2);
+}
+
+/* ---------- iPhone bezel ---------- */
+.device {
+  --dw: 268px;              /* outer device width */
+  width: var(--dw);
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+.device-frame {
+  position: relative;
+  width: var(--dw);
+  padding: calc(var(--dw) * 0.042);
+  border-radius: calc(var(--dw) * 0.168);
+  background:
+    linear-gradient(150deg, #6f7378 0%, #2c2f34 16%, #4a4e55 34%,
+                    #23262b 52%, #55595f 70%, #2a2d32 86%, #6a6e74 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 30px 60px -18px var(--phone-shadow),
+    0 10px 24px -12px rgba(0, 0, 0, 0.5);
+}
+/* side buttons */
+.device-frame::before,
+.device-frame::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--dw) * 0.011);
+  background: linear-gradient(180deg, #55595f, #2a2d32);
+  border-radius: 2px;
+}
+.device-frame::before {            /* volume rocker (left) */
+  left: calc(var(--dw) * -0.008);
+  top: 21%;
+  height: 15%;
+}
+.device-frame::after {             /* power button (right) */
+  right: calc(var(--dw) * -0.008);
+  top: 25%;
+  height: 11%;
+}
+.device-screen {
+  position: relative;
+  aspect-ratio: 1290 / 2796;
+  border-radius: calc(var(--dw) * 0.132);
+  overflow: hidden;
+  background: #fff;
+  transform: translateZ(0);        /* keep the clip crisp during playback */
+}
+.device-screen video,
+.device-screen img.device-still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: 0;
+}
+/* Dynamic Island */
+.device-island {
+  position: absolute;
+  top: calc(var(--dw) * 0.026);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--dw) * 0.29);
+  height: calc(var(--dw) * 0.086);
+  background: #05070b;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* play/replay affordance over the screen */
+.device-hint {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--dw) * 0.055);
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(10, 12, 18, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 6px 13px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+/* show the hint only while a clip is paused/idle */
+.device.is-idle .device-hint { opacity: 1; }
+
+/* big centred play glyph when motion is reduced or autoplay is blocked */
+.device-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(10, 12, 18, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  padding-left: 4px;
+}
+.device.needs-tap .device-play { display: flex; }
+.device.needs-tap .device-hint { opacity: 0; }
+
+/* ---------- Video showcase (alternating rows) ---------- */
+.showcase { display: flex; flex-direction: column; gap: 96px; }
+.showcase-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+}
+.showcase-row:nth-child(even) .showcase-media { order: 2; }
+.showcase-media { display: flex; justify-content: center; }
+.showcase-copy { max-width: 460px; }
+.showcase-row:nth-child(even) .showcase-copy { margin-left: auto; }
+.showcase-copy h3 { font-size: clamp(25px, 3.2vw, 33px); margin: 14px 0 14px; }
+.showcase-copy > p { color: var(--text-muted); font-size: 16.5px; }
+.showcase-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 0;
+  padding: 0;
+}
+.showcase-tags li {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  padding: 5px 11px;
+}
+
+/* ---------- What's new grid ---------- */
+.new-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.new-card {
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 16px;
+  padding: 26px 24px;
+  transition: transform 0.16s ease, border-color 0.2s ease;
+}
+.new-card:hover { transform: translateY(-3px); border-color: rgba(245, 133, 62, 0.4); }
+.new-card .tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 12px;
+}
+.new-card h4 { font-size: 18px; margin-bottom: 9px; }
+.new-card p { color: var(--text-muted); font-size: 15px; }
+
+.notice {
+  display: block;
+  max-width: 780px;
+  margin: 34px auto 0;
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 18px 22px;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+.notice strong { color: var(--text); }
+
+/* ---------- Compact numbered steps ---------- */
+.steps-compact {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  counter-reset: stepc;
+}
+.steps-compact .step-c {
+  position: relative;
+  padding-top: 26px;
+  border-top: 1px solid var(--edge);
+}
+.steps-compact .step-c::before {
+  counter-increment: stepc;
+  content: "0" counter(stepc);
+  position: absolute;
+  top: -11px;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--panel);
+  padding-right: 12px;
+}
+.steps-compact h4 { font-size: 18px; margin-bottom: 9px; }
+.steps-compact p { color: var(--text-muted); font-size: 15px; }
+
+/* ---------- Legal / privacy pages ---------- */
+.legal-hero {
+  padding: 74px 0 40px;
+  text-align: center;
+  border-bottom: 1px solid var(--edge);
+}
+.legal-hero h1 { font-size: clamp(34px, 5vw, 52px); margin-bottom: 14px; }
+.legal-hero .legal-meta {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+.legal { max-width: 820px; margin: 0 auto; padding: 64px 0 80px; }
+.legal > p, .legal li { color: var(--text-muted); font-size: 16px; }
+.legal > p { margin-bottom: 18px; }
+.legal h2 {
+  font-size: 25px;
+  margin: 52px 0 16px;
+  scroll-margin-top: 90px;
+}
+.legal h2 .num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+  margin-right: 12px;
+  vertical-align: 2px;
+}
+.legal h3 { font-size: 18px; margin: 28px 0 10px; }
+.legal ul { padding-left: 22px; margin: 0 0 18px; }
+.legal ul li { margin-bottom: 10px; }
+.legal ul li strong { color: var(--text); }
+.legal a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* at-a-glance callouts */
+.legal-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 0 0 44px;
+}
+.legal-summary div {
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 14px;
+  padding: 20px 20px;
+}
+.legal-summary h4 { font-size: 15.5px; margin-bottom: 7px; }
+.legal-summary p { color: var(--text-muted); font-size: 14px; }
+
+/* table of contents */
+.legal-toc {
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin-bottom: 46px;
+}
+.legal-toc .kicker { margin-bottom: 14px; display: block; }
+.legal-toc ol {
+  columns: 2;
+  column-gap: 34px;
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14.5px;
+}
+.legal-toc li { margin-bottom: 7px; break-inside: avoid; }
+.legal-toc a { color: var(--text-muted); text-decoration: none; }
+.legal-toc a:hover { color: var(--accent); }
+
+/* data-collection table */
+.data-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--edge);
+  border-radius: 14px;
+  margin: 0 0 24px;
+  background: var(--card);
+}
+table.data-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+table.data-table th,
+table.data-table td {
+  text-align: left;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--edge);
+  vertical-align: top;
+}
+table.data-table thead th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: var(--card-alt);
+}
+table.data-table tbody tr:last-child td { border-bottom: 0; }
+table.data-table td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
+table.data-table td { color: var(--text-muted); }
+table.data-table .grp {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---------- Responsive (v2 components) ---------- */
+@media (max-width: 980px) {
+  .new-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps-compact { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .showcase { gap: 64px; }
+  .showcase-row { grid-template-columns: 1fr; gap: 34px; text-align: center; }
+  .showcase-row:nth-child(even) .showcase-media { order: 0; }
+  .showcase-copy { max-width: 520px; margin: 0 auto !important; }
+  .showcase-tags { justify-content: center; }
+  .legal-summary { grid-template-columns: 1fr; }
+  .legal-toc ol { columns: 1; }
+}
+@media (max-width: 520px) {
+  .device { --dw: 236px; }
+  .new-grid { grid-template-columns: 1fr; }
+  .steps-compact { grid-template-columns: 1fr; }
+  .legal { padding: 46px 0 60px; }
+}
+
+/* surface the replay affordance on hover for mouse users */
+@media (hover: hover) and (pointer: fine) {
+  .device:hover .device-hint { opacity: 1; }
+  .device.needs-tap:hover .device-hint { opacity: 0; }
+}
+
+/* Narrow phones: the merchants CTA button must not force the page wider than
+   the viewport (it is nowrap by default so it stays on one line on desktop). */
+@media (max-width: 560px) {
+  .merchant-cta { padding: 32px 24px; }
+  .merchant-cta .btn-green { white-space: normal; }
+}
+
+/* Phones: stack the data table into readable blocks instead of side-scrolling */
+@media (max-width: 700px) {
+  .data-table-wrap { overflow-x: visible; }
+  table.data-table { min-width: 0; }
+  table.data-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  table.data-table tr { display: block; }
+  table.data-table td { display: block; border-bottom: 0; padding: 0 18px; }
+  table.data-table td.grp {
+    padding: 16px 18px 12px;
+    border-top: 1px solid var(--edge);
+    background: var(--card-alt);
+  }
+  table.data-table tr:first-child td.grp { border-top: 0; }
+  table.data-table td:first-child {
+    font-family: var(--font-display);
+    font-size: 17px;
+    padding-top: 18px;
+    white-space: normal;
+  }
+  table.data-table td[data-label] { padding-top: 10px; }
+  table.data-table td[data-label]:last-child { padding-bottom: 20px; }
+  table.data-table td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 3px;
+  }
+}
+
+/* Balance display headings so the last line never orphans a single word */
+.hero h1,
+.hero-lead,
+.section-head h2,
+.section-head p,
+.showcase-copy h3,
+.merchant-cta h3,
+.legal-hero h1 {
+  text-wrap: balance;
+}
+
+/* Small phones: the headline is vw-scaled so the quoted phrase stays on one
+   line, so the supporting copy has to scale with it or the hierarchy flattens. */
+@media (max-width: 560px) {
+  .hero-lead { font-size: clamp(15px, 4.4vw, 19px); }
+  .hero-desc { font-size: 15px; }
+}
+@media (max-width: 400px) {
+  .nav-brand { font-size: 16px; }
+  .nav-brand img { width: 28px; height: 28px; }
+  .nav-links .btn { padding: 9px 14px; font-size: 13px; }
+  .version-pill { font-size: 11px; padding: 6px 12px; letter-spacing: 0.06em; }
+}
+
+/* A quoted phrase that must never be split across lines. "“I don’t care”"
+   renders ~11.5x the font size wide, which is what sets the .section-head h2
+   floor above. */
+.nb { white-space: nowrap; }
