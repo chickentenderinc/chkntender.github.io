@@ -485,6 +485,7 @@ footer {
   width: var(--dw);
   margin: 0 auto;
   flex-shrink: 0;
+  cursor: pointer;
 }
 .device-frame {
   position: relative;
@@ -553,11 +554,9 @@ footer {
 
 /* play/replay affordance over the screen */
 .device-hint {
-  position: absolute;
-  left: 50%;
-  bottom: calc(var(--dw) * 0.055);
-  transform: translateX(-50%);
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
+  margin: 14px auto 0;
   align-items: center;
   gap: 7px;
   white-space: nowrap;
@@ -576,9 +575,12 @@ footer {
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;
-  z-index: 3;
 }
-/* show the hint only while a clip is paused/idle */
+/* Shown once a clip has finished, which is the only moment there is anything to
+   replay. This works on touch as well as on a mouse because the clips no longer
+   loop — while they did, a clip was never idle, so this label was unreachable on
+   touch and, on a mouse, only appeared during the hover that had already
+   restarted it. Replay is a click or a tap now, on every device. */
 .device.is-idle .device-hint { opacity: 1; }
 
 /* big centred play glyph when motion is reduced or autoplay is blocked */
@@ -838,12 +840,6 @@ table.data-table .grp {
   .new-grid { grid-template-columns: 1fr; }
   .steps-compact { grid-template-columns: 1fr; }
   .legal { padding: 46px 0 60px; }
-}
-
-/* surface the replay affordance on hover for mouse users */
-@media (hover: hover) and (pointer: fine) {
-  .device:hover .device-hint { opacity: 1; }
-  .device.needs-tap:hover .device-hint { opacity: 0; }
 }
 
 /* Narrow phones: the merchants CTA button must not force the page wider than

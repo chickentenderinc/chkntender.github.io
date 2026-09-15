@@ -5,11 +5,10 @@
  * are held in data-src so nothing downloads until the phone is near the
  * viewport. From there:
  *
- *   - the clip plays by itself once it is meaningfully on screen and pauses
- *     when it scrolls away (no play button, no click required — desktop and
- *     mobile alike);
- *   - hovering a phone on a mouse device replays it from the top, and tapping
- *     one on a touch device does the same;
+ *   - the clip plays through once when it is meaningfully on screen, holds on
+ *     its last frame, and pauses if it scrolls away before finishing (no play
+ *     button, no click required — desktop and mobile alike);
+ *   - clicking or tapping a phone replays it from the top, on every device;
  *   - if autoplay is refused (iOS Low Power Mode, data saver, some desktop
  *     settings) or the visitor prefers reduced motion, the poster stays put
  *     behind a real play button.
@@ -29,7 +28,7 @@
         var hint = device.querySelector('.device-hint');
         if (!video) return;
 
-        if (hint) hint.textContent = canHover ? 'Hover to replay' : 'Tap to replay';
+        if (hint) hint.textContent = canHover ? 'Click to replay' : 'Tap to replay';
 
         var loaded = false;
         var wantsToPlay = false;
@@ -70,6 +69,11 @@
         video.addEventListener('pause', function () {
             device.classList.add('is-idle');
         });
+        // Browsers fire pause before ended, but the replay hint hangs off this
+        // state, so set it from the event that actually means "finished" too.
+        video.addEventListener('ended', function () {
+            device.classList.add('is-idle');
+        });
 
         // --- Autoplay / pause on scroll -------------------------------------
         if ('IntersectionObserver' in window) {
@@ -102,17 +106,11 @@
             }
         }
 
-        // --- Replay affordances ---------------------------------------------
-        if (canHover) {
-            device.addEventListener('mouseenter', function () {
-                if (!reduceMotion) play(true);
-            });
-        } else {
-            device.addEventListener('click', function () {
-                if (device.classList.contains('needs-tap')) return; // handled by the button
-                play(true);
-            });
-        }
+        // --- Replay affordance ----------------------------------------------
+        device.addEventListener('click', function () {
+            if (device.classList.contains('needs-tap')) return; // handled by the button
+            play(true);
+        });
 
         if (playBtn) {
             playBtn.addEventListener('click', function (e) {
