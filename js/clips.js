@@ -120,4 +120,30 @@
             });
         }
     });
+
+    // --- iOS: re-settle the clip after the page has been backgrounded --------
+    //
+    // Each clip is a composited layer (.device-screen is promoted with
+    // translateZ(0) so the rounded corners clip a playing video cleanly). iOS
+    // Safari can tear that layer down when the tab goes to the background and
+    // rebuild it at the wrong scale on the way back, which shows up as the clip
+    // zoomed into the middle of the phone. Re-resolving object-fit forces the
+    // element to lay its video box out again, which rebuilds the layer.
+    function resettle() {
+        devices.forEach(function (device) {
+            var video = device.querySelector('video');
+            if (!video || !video.currentSrc) return;   // nothing loaded yet
+            video.style.objectFit = 'fill';
+            void video.offsetHeight;                   // flush between the writes
+            video.style.objectFit = '';
+        });
+    }
+
+    document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) resettle();
+    });
+    // Back/forward cache restores do not fire visibilitychange.
+    window.addEventListener('pageshow', function (e) {
+        if (e.persisted) resettle();
+    });
 })();
