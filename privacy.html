@@ -58,7 +58,7 @@
         <div class="container">
             <span class="kicker">// legal</span>
             <h1>Privacy Policy</h1>
-            <p class="legal-meta">Chicken Tender, Inc &nbsp;&bull;&nbsp; Effective September 5, 2026 &nbsp;&bull;&nbsp; Applies to app version 2.0</p>
+            <p class="legal-meta">Chicken Tender, Inc &nbsp;&bull;&nbsp; Effective September 15, 2026 &nbsp;&bull;&nbsp; Applies to app version 2.3</p>
         </div>
     </header>
 
@@ -107,7 +107,7 @@
             <!-- 1 -->
             <h2 id="s1"><span class="num">01</span>What we collect</h2>
 
-            <p>The app collects six categories of data. None of them are linked to your identity.</p>
+            <p>The app collects seven categories of data. None of them are linked to your identity.</p>
 
             <div class="data-table-wrap">
                 <table class="data-table">
@@ -133,6 +133,14 @@
                             <td data-label="Used for">Analytics, product personalization, our own advertising and marketing</td>
                         </tr>
                         <tr>
+                            <td colspan="3" class="grp">User content</td>
+                        </tr>
+                        <tr>
+                            <td>Other&nbsp;User&nbsp;Content</td>
+                            <td data-label="What it is">The note you write on a favorite restaurant, and the menu items you list there. You choose whether to write anything at all. Both are stored on our servers against the identifier for your install so your favorites come back to you, and neither is ever shown to other players in your game.</td>
+                            <td data-label="Used for">App functionality</td>
+                        </tr>
+                        <tr>
                             <td colspan="3" class="grp">Search history</td>
                         </tr>
                         <tr>
@@ -145,7 +153,7 @@
                         </tr>
                         <tr>
                             <td>App&nbsp;ID</td>
-                            <td data-label="What it is">A random identifier the app generates for your install so a game session works and preferences carry across sessions. It is not your name or email, and it is not the advertising identifier your operating system provides &mdash; the app does not read or use that.</td>
+                            <td data-label="What it is">A random identifier the app generates for your install so a game session works, your preferences carry across sessions, and your favorites come back to you. It is deliberately stored outside the app&rsquo;s own files &mdash; in the iOS Keychain, or in your Android backup &mdash; so that reinstalling the app or setting up a new phone returns you to your own favorites rather than a blank list. It is not your name or email, and it is not the advertising identifier your operating system provides &mdash; the app does not read or use that.</td>
                             <td data-label="Used for">App functionality, analytics, product personalization</td>
                         </tr>
                         <tr>
@@ -181,7 +189,7 @@
             <ul>
                 <li><strong>No account credentials.</strong> The app never asks for an email address, a password, or a login, and we have no user accounts to attach data to.</li>
                 <li><strong>No contacts or microphone access.</strong> The app does not request either.</li>
-                <li><strong>No profile on our servers.</strong> The display name and photo you can add stay on your device. They are shared over Bluetooth with the players in your game and are never sent to us.</li>
+                <li><strong>No account profile.</strong> The display name and photo you can add stay on your device. They are shared over Bluetooth with the players in your game and are never sent to us. Your favorites, and any note or menu items you attach to them, are the one thing we do keep for you on our servers &mdash; see section 1. They are held against the random identifier for your install, never against a name, an email address, or anything else that identifies you personally.</li>
                 <li><strong>No crash logs or diagnostics.</strong> The app does not collect crash reports, performance measurements, or other technical diagnostics from your device.</li>
                 <li><strong>No payment information.</strong> The app is free and has no in-app purchases or subscriptions.</li>
                 <li><strong>No advertising identifier.</strong> The app does not read or use the advertising ID your operating system provides &mdash; IDFA on iOS, Advertising ID on Android.</li>
@@ -213,9 +221,10 @@
             <!-- 6 -->
             <h2 id="s6"><span class="num">06</span>How we share information</h2>
 
-            <p>We do not use third-party service providers, analytics vendors, or advertising vendors. We share information only in the circumstances below.</p>
+            <p>We use no third-party analytics vendors and no advertising vendors. We use one third-party service provider, named below. Otherwise we share information only in the circumstances that follow.</p>
             <ul>
                 <li><strong>Other players in your game</strong> &mdash; over Bluetooth, as described in section 4.</li>
+                <li><strong>Apple Maps, when you search from outside the United States</strong> &mdash; our own restaurant catalog covers the United States. If you are travelling abroad and it has nothing near you, the app can search Apple Maps instead so you still get a deck. The coordinates you are searching from are sent from our servers to Apple in order to run that search, and the results come back to you as cards. The identifier for your install is not sent to Apple, and Apple&rsquo;s privacy policy governs what Apple does with the search.</li>
                 <li><strong>Restaurants and merchants</strong> &mdash; aggregated, de-identified swipe trends may be provided to restaurants through Chicken Tender for Merchants, so they can understand how diners in an area are choosing. No individual user is identifiable from this data, and no individual&rsquo;s swipes are ever shown to a restaurant.</li>
                 <li><strong>Legal requirements</strong> &mdash; if we are required to disclose information by law, such as in response to a valid subpoena or court order, or to protect our rights, safety, or property.</li>
                 <li><strong>Business transfers</strong> &mdash; if Chicken Tender, Inc is involved in a merger, acquisition, or sale of assets, information may be transferred as part of that transaction.</li>
@@ -223,7 +232,7 @@
             </ul>
 
             <h3>Links out of the app</h3>
-            <p>Restaurant listings, hours, photos and popular times are served from our own systems. Menus, ordering and reservation links, directions and phone numbers point to services run by the restaurant or by another company &mdash; the restaurant&rsquo;s own site, your maps app, your phone dialer. Once you follow one of those you have left Chicken Tender, and that service&rsquo;s privacy policy governs what happens there.</p>
+            <p>Restaurant listings, hours, photos and popular times are served from our own systems. Menus, ordering and reservation links, directions and phone numbers point to services run by the restaurant or by another company &mdash; the restaurant&rsquo;s own site, your maps app, your phone dialer. Once you follow one of those you have left Chicken Tender, and that service&rsquo;s privacy policy governs what happens there. Opening the details of a restaurant found through Apple Maps, rather than in our own catalog, opens that place&rsquo;s Apple Maps page in the in-app browser in the same way.</p>
 
             <!-- 7 -->
             <h2 id="s7"><span class="num">07</span>Your choices and controls</h2>
@@ -233,13 +242,16 @@
                 <li><strong>Bluetooth.</strong> Revoke Bluetooth access in device settings. You can still play solo.</li>
                 <li><strong>Notifications.</strong> Deal notifications are optional and off unless you turn them on. You can turn them off at any time in device settings.</li>
                 <li><strong>Display name and photo.</strong> Both are optional and can be changed or removed in the app at any time. Neither is stored on our servers.</li>
-                <li><strong>Deleting the app.</strong> Deleting the app removes the data held on your device, including the identifier generated for your install.</li>
+                <li><strong>Your favorites.</strong> Remove a favorite in the app at any time and its note and menu items go with it. Removing them this way is the quickest way to have them deleted from our servers.</li>
+                <li><strong>Deleting the app.</strong> Deleting the app removes the app&rsquo;s own storage on your device, including your display name and photo. It does <strong>not</strong> delete your favorites, which are held on our servers rather than on your phone, and it does <strong>not</strong> remove the identifier for your install &mdash; that is kept deliberately, as described in section 1, so that reinstalling or moving to a new phone brings your own favorites back rather than starting you over. If you want your favorites gone, remove them in the app before you delete it, or email us.</li>
                 <li><strong>Requests to us.</strong> Email <a href="mailto:info@chickentenderapp.com">info@chickentenderapp.com</a> to ask about, opt out of, or request deletion of data associated with your install. Because the app has no accounts, please include your device platform and the approximate dates you used the app so we can locate the relevant records.</li>
             </ul>
 
             <!-- 8 -->
             <h2 id="s8"><span class="num">08</span>Data retention</h2>
-            <p>Usage and swipe data is retained for as long as it is useful for the purposes described above, and aggregated trend data may be retained indefinitely in a form that does not identify any device or person. Data held on your device, including your display name and photo, is removed when you delete the app.</p>
+            <p>Usage and swipe data is retained for as long as it is useful for the purposes described above, and aggregated trend data may be retained indefinitely in a form that does not identify any device or person.</p>
+            <p>Your favorites &mdash; including any note and menu items you added &mdash; are kept until you remove them, in the app or by asking us. They are held against the identifier for your install, and because that identifier is meant to outlive the install, deleting the app does not delete them. On Android, restoring the identifier depends on your device backup being switched on; if it is not, a reinstall starts you with a new list, and the old one stays with us until you ask us to delete it.</p>
+            <p>Data held only on your device, including your display name and photo, is removed when you delete the app.</p>
 
             <!-- 9 -->
             <h2 id="s9"><span class="num">09</span>Security</h2>
