@@ -431,6 +431,8 @@ footer {
 .footer-brand { display: flex; align-items: center; gap: 12px; }
 .footer-brand img { width: 30px; height: 30px; }
 .footer-brand span { font-family: var(--font-display); font-weight: 700; font-size: 16px; }
+.footer-brand .wordmark { color: var(--text); }
+.footer-brand .wordmark .accent { color: var(--accent); }
 .footer-legal { color: var(--text-dim); font-size: 12.5px; line-height: 1.8; max-width: 460px; }
 .footer-links { display: flex; flex-direction: column; gap: 8px; text-align: right; }
 .footer-links a { color: var(--text-muted); font-size: 14px; }
