@@ -585,7 +585,7 @@ footer {
    restarted it. Replay is a click or a tap now, on every device. */
 .device.is-idle .device-hint { opacity: 1; }
 
-/* big centred play glyph when motion is reduced or autoplay is blocked */
+/* big centered play glyph when motion is reduced or autoplay is blocked */
 .device-play {
   position: absolute;
   inset: 0;
