@@ -1,14 +1,42 @@
 <script>
 function redirectByOS() {
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    var campaign = campaignTag();
 
     if (/android/i.test(userAgent)) {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.kvl.chickentender";
+        var playUrl = "https://play.google.com/store/apps/details?id=com.kvl.chickentender";
+        if (campaign) {
+            var source = campaign.split("_")[0];
+            playUrl += "&referrer=" + encodeURIComponent("utm_source=" + source + "&utm_medium=download_page&utm_campaign=" + campaign);
+        }
+        window.location.href = playUrl;
     } else if (isiOS()) {
-        window.location.href = "https://apps.apple.com/us/app/id1514175364";
+        if (campaign) {
+            window.location.href = "https://apps.apple.com/app/apple-store/id1514175364?pt=128902070&ct=" + campaign + "&mt=8";
+        } else {
+            window.location.href = "https://apps.apple.com/us/app/id1514175364";
+        }
     } else {
         window.location.href = "https://www.chickentenderapp.com";
     }
+}
+
+// Optional ?c=<tag> (e.g. download.html?c=meta_duo) is passed to the stores as the App Store
+// campaign token (ct) and the Google Play utm_campaign, so installs can be counted per campaign
+// in App Store Connect and the Play Console. Nothing is stored or sent anywhere else.
+function campaignTag() {
+    var match = /[?&]c=([^&#]*)/.exec(window.location.search);
+    if (!match) {
+        return null;
+    }
+    var tag;
+    try {
+        tag = decodeURIComponent(match[1]);
+    } catch (e) {
+        return null;
+    }
+    // App Store campaign tokens are limited to 40 characters.
+    return /^[A-Za-z0-9_-]{1,40}$/.test(tag) ? tag : null;
 }
 
 function isiOS() {
