@@ -14,7 +14,13 @@
   </url>
   <url>
     <loc>https://www.chickentenderapp.com/privacy.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.chickentenderapp.com/terms.html</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
