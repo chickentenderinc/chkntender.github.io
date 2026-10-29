@@ -31,8 +31,10 @@
   --glow: rgba(245, 133, 62, 0.14);
   --phone-shadow: rgba(0, 0, 0, 0.5);
 
-  --font-display: "Space Grotesk", sans-serif;
-  --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  /* matches the app's wordmark — keep on Jakarta even if the display face changes */
+  --font-wordmark: "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   --maxw: 1120px;
@@ -154,6 +156,7 @@ a:hover { color: var(--accent); }
   letter-spacing: -0.01em;
 }
 .nav-brand img { width: 34px; height: 34px; object-fit: contain; }
+.wordmark { font-family: var(--font-wordmark); }
 .nav-brand .wordmark { color: var(--text); }
 .nav-brand .wordmark .accent { color: var(--accent); }
 .nav-links { display: flex; align-items: center; gap: 26px; }
@@ -431,7 +434,7 @@ footer {
 .footer-brand { display: flex; align-items: center; gap: 12px; }
 .footer-brand img { width: 30px; height: 30px; }
 .footer-brand span { font-family: var(--font-display); font-weight: 700; font-size: 16px; }
-.footer-brand .wordmark { color: var(--text); }
+.footer-brand .wordmark { font-family: var(--font-wordmark); color: var(--text); }
 .footer-brand .wordmark .accent { color: var(--accent); }
 .footer-legal { color: var(--text-dim); font-size: 12.5px; line-height: 1.8; max-width: 460px; }
 .footer-links { display: flex; flex-direction: column; gap: 8px; text-align: right; }
