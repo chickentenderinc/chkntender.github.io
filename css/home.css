@@ -931,3 +931,205 @@ table.data-table .grp {
    renders ~11.5x the font size wide, which is what sets the .section-head h2
    floor above. */
 .nb { white-space: nowrap; }
+
+/* =====================================================================
+   v2.6 additions: photos, menu highlights, offers, Rewards.
+   The .art* panels are illustrations standing in until there are
+   screenshots. They are deliberately not phone-shaped, so they can't be
+   mistaken for the app's real screens.
+   ===================================================================== */
+.grid-2 {
+  display: grid;
+  /* minmax(0, ...): a plain 1fr can't shrink below its content, which pushes the card off a phone */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.art {
+  height: 300px;
+  margin-bottom: 26px;
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--card-alt);
+  overflow: hidden;
+}
+.art-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kicker);
+}
+.art-note { display: block; color: var(--text-muted); font-size: 14px; }
+.art-headline {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 8px 0 4px;
+}
+
+/* gallery: the next photo waits behind the current one, as in the app's viewer */
+.art-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.art-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #fa9f66, #d9480f);
+}
+.art-photo-b, .art-photo-back { background: linear-gradient(145deg, #55c7c0, #0b6e69); }
+.art-photo-c { background: linear-gradient(145deg, #b7d77a, #4f8a2b); }
+.art-photo-d { background: linear-gradient(145deg, #fdcb6e, #d68910); }
+.art-stack { position: relative; width: min(250px, 85%); flex: 1; }
+.art-stack .art-photo {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  font-size: 68px;
+  box-shadow: 0 12px 26px -12px var(--phone-shadow);
+}
+.art-photo-back { transform: translateX(26px) rotate(5deg) scale(0.945); font-size: 0 !important; }
+.art-photo-front { transform: rotate(-2deg); }
+.art-strip { display: flex; gap: 8px; }
+.art-strip .art-photo {
+  width: 42px;
+  height: 42px;
+  border-radius: 9px;
+  font-size: 19px;
+}
+.art-strip .is-on { box-shadow: 0 0 0 2px var(--card-alt), 0 0 0 4px var(--accent); }
+
+/* menu highlights: the first pill leads, the rest are outlined, as on the card */
+.art-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+.art-pills {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.art-pills li {
+  border: 1px solid var(--edge);
+  background: var(--card);
+  border-radius: 999px;
+  padding: 8px 15px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.art-pills b { color: var(--text-muted); font-weight: 500; margin-left: 3px; }
+.art-pills .is-lead {
+  background: rgba(245, 133, 62, 0.14);
+  border-color: rgba(245, 133, 62, 0.45);
+}
+
+/* offer: a ticket, torn along the line above the code */
+.art-ticket, .art-rewards {
+  width: 100%;
+  max-width: 360px;
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 18px;
+  box-shadow: 0 26px 50px -24px var(--phone-shadow);
+}
+.art-ticket { transform: rotate(-2deg); }
+.art-ticket-top { padding: 28px 30px 24px; }
+.art-ticket-bottom {
+  position: relative;
+  padding: 24px 30px 28px;
+  border-top: 2px dashed var(--edge);
+}
+.art-ticket-bottom::before,
+.art-ticket-bottom::after {
+  content: "";
+  position: absolute;
+  top: -13px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 1px solid var(--edge);
+}
+/* Each notch is a panel-colored circle centered on the ticket's edge, showing only its inner arc.
+   The clip also keeps a 3px strip outside the edge, inset to miss the arc: clipping exactly on the
+   edge leaves the ticket's border showing through as a hairline once the ticket is rotated. */
+.art-ticket-bottom::before {
+  left: -13px;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%,
+    50% calc(100% - 1.5px), calc(50% - 3px) calc(100% - 1.5px), calc(50% - 3px) 1.5px, 50% 1.5px);
+}
+.art-ticket-bottom::after {
+  right: -13px;
+  clip-path: polygon(50% 0, 0 0, 0 100%, 50% 100%,
+    50% calc(100% - 1.5px), calc(50% + 3px) calc(100% - 1.5px), calc(50% + 3px) 1.5px, 50% 1.5px);
+}
+.art-code {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin: 8px 0 6px;
+}
+@media (prefers-color-scheme: light) {
+  .art-code { color: var(--accent-dim); }
+}
+
+/* Rewards: filled flames for visits made */
+.art-rewards { padding: 28px 30px; }
+.art-visits {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 22px 0 18px;
+}
+.art-visits span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  max-width: 54px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px dashed var(--edge);
+}
+.art-visits .is-on {
+  border: 2px solid var(--accent);
+  background: rgba(245, 133, 62, 0.14);
+}
+.art-visits img { width: 58%; height: 58%; object-fit: contain; }
+.art-progress {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.art-progress .art-note { font-weight: 400; }
+
+@media (max-width: 860px) {
+  .grid-2 { grid-template-columns: minmax(0, 1fr); }
+  .art-ticket-top, .art-ticket-bottom, .art-rewards { text-align: left; }
+}
+@media (max-width: 400px) {
+  .art-code { font-size: 30px; letter-spacing: 0.1em; }
+}

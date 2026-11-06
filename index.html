@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Chicken Tender is the free app that ends the 'where do you want to eat?' debate. Swipe on nearby restaurants with friends, match, and go eat. Save your go-to spots to Favorites with private notes and hours, filter to what&#39;s open now, and swipe together at home or traveling abroad. Free on iPhone &amp; Android.">
+    <meta name="description" content="Chicken Tender is the free app that ends the 'where do you want to eat?' debate. Swipe on nearby restaurants with friends, match, and go eat. See photos and menu highlights, claim offers and join Chicken Tender Rewards at participating restaurants, and save your go-to spots to Favorites. Free on iPhone &amp; Android.">
     <meta name="keywords" content="Chicken Tender, restaurant picker app, where to eat app, food decision app, group dining app, restaurant swipe app, date night app, indecision app, free restaurant app, open now restaurants">
     <meta name="author" content="Chicken Tender, Inc">
     <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
@@ -28,7 +28,7 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Chicken Tender — End the &quot;where do we eat?&quot; debate. Swipe nearby restaurants with friends, match, and go eat. Free on iPhone &amp; Android." />
-    <meta property="og:description" content="Everyone swipes, everyone matches, everyone eats. Now with Favorites — save your go-to spots with private notes and hours — and restaurant search that travels with you abroad. Free on iOS and Android." />
+    <meta property="og:description" content="Everyone swipes, everyone matches, everyone eats. Now with offers, Chicken Tender Rewards, photo galleries and menu highlights at participating restaurants. Free on iOS and Android." />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -46,7 +46,7 @@
       "@context": "https://schema.org",
       "@type": "MobileApplication",
       "name": "Chicken Tender",
-      "softwareVersion": "2.5",
+      "softwareVersion": "2.6",
       "description": "Chicken Tender helps groups decide where to eat. Phones find each other over Bluetooth with no accounts and no sign-up. Everyone swipes on nearby restaurants and the moment everyone likes the same place, you've got a match.",
       "applicationCategory": "FoodAndDrink",
       "operatingSystem": ["iOS", "Android"],
@@ -72,6 +72,9 @@
         "Menus, ordering and reservation links, maps, one-tap directions and calling",
         "Automatic Bluetooth pairing with nearby players — no accounts or invite links",
         "Filter by cuisine, sort by distance, or pin a different neighborhood",
+        "Offers from participating restaurants, with codes saved in My Offers and ready without a signal",
+        "Chicken Tender Rewards: check in at participating restaurants and earn a reward as your visits add up",
+        "Photo galleries and menu highlights on the cards of participating restaurants",
         "Favorites with private notes and your usual order",
         "Works outside the US",
         "Share a restaurant by link",
@@ -142,6 +145,22 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Open the app with your friends nearby and phones find each other over Bluetooth — no group link to share. Swipe right on places you'd eat and left on places you wouldn't. The moment everyone likes the same restaurant, you've got a match. Torn between a few? Spin for it and let fate pick."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's new in Chicken Tender 2.6?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Version 2.6 adds three things at participating restaurants: offers you claim in the app, Chicken Tender Rewards for repeat visits, and photos and menu highlights right on the card, with a new full-screen photo gallery."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do offers and Chicken Tender Rewards work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To use an offer, claim it in the app and show your code to staff when you order. Your codes are saved in My Offers in your Profile, ready even without a signal. To use Chicken Tender Rewards, join a restaurant's program, which also adds the restaurant to your Favorites. Each time you visit, get a check-in code in the app and show it when you order. A visit counts when staff enter your code, up to one a day, and a reward is earned once your visits add up. Using a Chicken Tender offer at a restaurant where you have joined also counts as a visit. Neither one needs an account. Each restaurant sets the terms of its own offers and rewards and honors them."
           }
         },
         {
@@ -218,6 +237,7 @@
             </a>
             <div class="nav-links">
                 <a href="#see-it" class="nav-link">See it</a>
+                <a href="#offers" class="nav-link">Offers</a>
                 <a href="#favorites" class="nav-link">Favorites</a>
                 <a href="#how-it-works" class="nav-link">How it works</a>
                 <a href="#faq" class="nav-link">FAQ</a>
@@ -380,6 +400,127 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- 2.6: photos + menu highlights.
+         The .art panels are illustrations standing in until there are screenshots. To swap one,
+         replace it with the Favorites section's <figure class="device is-still"> markup. -->
+    <section id="photos">
+        <div class="container">
+            <div class="section-head">
+                <span class="kicker">// new in 2.6</span>
+                <h2>See the place and what to order</h2>
+                <p>At participating restaurants, the card now shows you what the place looks like and what&rsquo;s good there, right while you&rsquo;re deciding.</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="art art-gallery" role="img" aria-label="Illustration of a stack of restaurant photos with a row of thumbnails beneath it.">
+                        <div class="art-stack">
+                            <div class="art-photo art-photo-back">&#127836;</div>
+                            <div class="art-photo art-photo-front">&#127828;</div>
+                        </div>
+                        <div class="art-strip">
+                            <span class="art-photo is-on">&#127828;</span>
+                            <span class="art-photo art-photo-b">&#127836;</span>
+                            <span class="art-photo art-photo-c">&#129367;</span>
+                            <span class="art-photo art-photo-d">&#127856;</span>
+                        </div>
+                    </div>
+                    <h4>A full-screen photo gallery</h4>
+                    <p>See the room and the food before you commit. Open a restaurant&rsquo;s photos full screen, swipe through them like the deck itself, jump around with the filmstrip, and pinch to zoom in on the plate.</p>
+                </div>
+                <div class="card green">
+                    <div class="art art-menu" role="img" aria-label="Illustration of a restaurant card's menu highlights: a row of dish names, some with prices.">
+                        <span class="art-eyebrow">Menu highlights</span>
+                        <ul class="art-pills">
+                            <li class="is-lead">&#128293; Hot honey tenders <b>$14</b></li>
+                            <li>Smash burger <b>$12</b></li>
+                            <li>Waffle fries</li>
+                            <li>Banana pudding <b>$7</b></li>
+                            <li>House lemonade</li>
+                        </ul>
+                    </div>
+                    <h4>What to order, right on the card</h4>
+                    <p>Menu highlights put a restaurant&rsquo;s standout dishes on its card, some with prices, so your group can see what&rsquo;s good without leaving the deck.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.6: offers + Chicken Tender Rewards. Same swap as above, into .showcase-media. -->
+    <section id="offers" class="bg-panel">
+        <div class="container">
+            <div class="section-head">
+                <span class="kicker">// new in 2.6</span>
+                <h2>Get a little something for going out</h2>
+                <p>Participating restaurants can now run offers and Chicken Tender Rewards right in the app. Still no account, and still no email address.</p>
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-row">
+                    <div class="showcase-media">
+                        <div class="art-ticket" role="img" aria-label="Illustration of an example offer: 20% off, dine-in only, with a six-character code to show to staff.">
+                            <div class="art-ticket-top">
+                                <span class="art-eyebrow">Offer</span>
+                                <strong class="art-headline">20% off</strong>
+                                <span class="art-note">Dine-in only</span>
+                            </div>
+                            <div class="art-ticket-bottom">
+                                <span class="art-eyebrow">Your code</span>
+                                <strong class="art-code">K7M2QX</strong>
+                                <span class="art-note">Show this code to staff when you order.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-copy">
+                        <span class="kicker">// offers</span>
+                        <h3>Claim it, then show your code</h3>
+                        <p>See an offer on a card? Claim it in the app and you&rsquo;ll get a code of your own to show when you order. Every code you claim is saved in My Offers in your Profile, ready even without a signal.</p>
+                        <ul class="showcase-tags">
+                            <li>Claim in the app</li>
+                            <li>Your own code</li>
+                            <li>Saved in My Offers</li>
+                            <li>Ready without a signal</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="showcase-row">
+                    <div class="showcase-media">
+                        <div class="art-rewards" role="img" aria-label="Illustration of an example Chicken Tender Rewards card: three of five visits collected toward a free dessert.">
+                            <span class="art-eyebrow">Chicken Tender Rewards</span>
+                            <strong class="art-headline">Free dessert</strong>
+                            <div class="art-visits">
+                                <span class="is-on"><img src="./img/flame.png" alt=""></span>
+                                <span class="is-on"><img src="./img/flame.png" alt=""></span>
+                                <span class="is-on"><img src="./img/flame.png" alt=""></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="art-progress">
+                                <span>3 of 5 visits</span>
+                                <span class="art-note">2 more visits to go</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-copy">
+                        <span class="kicker">// chicken tender rewards</span>
+                        <h3>Your visits add up</h3>
+                        <p>Join a restaurant&rsquo;s Chicken Tender Rewards program and it&rsquo;s added to your Favorites. Each time you visit, get a check-in code in the app and show it when you order. Staff enter it to record your visit, and once your visits add up, you&rsquo;ve earned the reward. Using a Chicken Tender offer there counts as a visit too.</p>
+                        <ul class="showcase-tags">
+                            <li>Check in with a code</li>
+                            <li>One visit a day</li>
+                            <li>Offers count too</li>
+                            <li>Track your progress</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="notice"><strong>Good to know:</strong> each restaurant sets the terms of its own offers and rewards and is the one who honors them. Our <a href="terms.html#s3">Terms of Use</a> have the details.</p>
         </div>
     </section>
 
@@ -566,6 +707,14 @@
                 <details>
                     <summary>How does the group matching work?</summary>
                     <p>Everyone just opens the app. Chicken Tender uses Bluetooth to automatically discover nearby players &mdash; no invites, no links to share, zero setup. Everyone swipes the same set of nearby restaurants, and the moment everyone likes the same place you&rsquo;ve got a match. End the game to reveal it, along with everything else the group liked.</p>
+                </details>
+                <details>
+                    <summary>What&rsquo;s new in 2.6?</summary>
+                    <p>Version 2.6 adds three things at participating restaurants: offers you claim in the app, Chicken Tender Rewards for repeat visits, and photos and menu highlights right on the card, with a new full-screen photo gallery.</p>
+                </details>
+                <details>
+                    <summary>How do offers and Chicken Tender Rewards work?</summary>
+                    <p>To use an offer, claim it in the app and show your code to staff when you order. Your codes are saved in My Offers in your Profile, ready even without a signal. To use Chicken Tender Rewards, join a restaurant&rsquo;s program, which also adds the restaurant to your Favorites. Each time you visit, get a check-in code in the app and show it when you order. A visit counts when staff enter your code, up to one a day, and a reward is earned once your visits add up. Using a Chicken Tender offer at a restaurant where you&rsquo;ve joined also counts as a visit. Neither one needs an account. Each restaurant sets the terms of its own offers and rewards and honors them.</p>
                 </details>
                 <details>
                     <summary>What&rsquo;s new in 2.0?</summary>
